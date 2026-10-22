@@ -4,37 +4,41 @@ import{u as h,a as N,S as u,s as k}from"./index-yr7RATzZ.js";
 import"./supabase-CU-G9Hxl.js";
 
 function S({onInstall:a,onSkip:l,deferredPrompt:t}){
-  const [copied, setCopied] = n.useState(false);
   const handleInstallClick = async () => {
     if (t) {
       try {
         t.prompt();
         await t.userChoice;
-      } catch(e) {}
+      } catch(err) {}
     }
     a();
   };
 
   return e.jsx("div",{
-    className:"fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-4 backdrop-blur-md animate-in fade-in duration-200",
+    className:"fixed inset-0 z-50 flex items-center justify-center bg-black/85 px-4 backdrop-blur-md",
     children: e.jsxs("div",{
-      className:"relative w-full max-w-sm overflow-hidden rounded-3xl border border-cyan-500/30 bg-[#0d0d12]/95 p-6 text-center shadow-2xl backdrop-blur-2xl ring-1 ring-cyan-500/20",
+      className:"relative w-full max-w-sm overflow-hidden rounded-3xl p-7 text-center shadow-2xl",
+      style:{
+        backgroundColor:"#111116",
+        border:"1px solid rgba(0, 229, 255, 0.35)",
+        boxShadow:"0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 229, 255, 0.15)"
+      },
       children:[
-        e.jsx("div",{"aria-hidden":!0,className:"absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[70px]"}),
+        e.jsx("div",{"aria-hidden":!0,className:"absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full blur-[70px]",style:{backgroundColor:"rgba(0,229,255,0.2)"}}),
         e.jsxs("div",{
           className:"relative z-10 flex flex-col items-center",
           children:[
             e.jsx("img",{
               src:"/logo.png",
               alt:"NIK Remote",
-              className:"mb-4 h-20 w-20 object-contain drop-shadow-[0_0_20px_rgba(6,182,212,0.6)] transition-transform hover:scale-105"
+              className:"mb-4 h-20 w-20 object-contain drop-shadow-[0_0_20px_rgba(0,229,255,0.7)]"
             }),
             e.jsx("h2",{
               className:"mb-2 text-2xl font-bold tracking-tight text-white",
               children:"Install NIK Remote"
             }),
             e.jsx("p",{
-              className:"mb-6 text-[14px] leading-relaxed text-white/70",
+              className:"mb-6 text-[14px] leading-relaxed text-white/75",
               children:"Add it to your home screen — one tap to call NIK on your PC."
             }),
             e.jsxs("div",{
@@ -44,10 +48,17 @@ function S({onInstall:a,onSkip:l,deferredPrompt:t}){
                   type:"button",
                   id:"install-app-btn",
                   onClick:handleInstallClick,
-                  className:"flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 font-semibold text-black shadow-lg shadow-cyan-500/25 transition-all hover:brightness-110 active:scale-[0.98]",
+                  className:"flex h-12 w-full items-center justify-center gap-2 rounded-xl transition-all hover:brightness-110 active:scale-[0.98]",
+                  style:{
+                    backgroundColor:"#00e5ff",
+                    color:"#000000",
+                    fontWeight:"700",
+                    fontSize:"15px",
+                    boxShadow:"0 4px 20px rgba(0, 229, 255, 0.4)"
+                  },
                   children: e.jsxs(e.Fragment,{
                     children:[
-                      e.jsx("svg",{className:"h-5 w-5",fill:"none",viewBox:"0 0 24 24",stroke:"currentColor",strokeWidth:2,children:e.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"})}),
+                      e.jsx("svg",{className:"h-5 w-5",fill:"none",viewBox:"0 0 24 24",stroke:"currentColor",strokeWidth:2.5,children:e.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"})}),
                       e.jsx("span",{children:"Install App"})
                     ]
                   })
@@ -56,7 +67,12 @@ function S({onInstall:a,onSkip:l,deferredPrompt:t}){
                   type:"button",
                   id:"skip-install-btn",
                   onClick:l,
-                  className:"flex h-11 w-full items-center justify-center rounded-xl text-sm font-medium text-white/60 transition-colors hover:text-white hover:bg-white/5 active:scale-[0.98]",
+                  className:"flex h-11 w-full items-center justify-center rounded-xl text-sm font-medium transition-colors hover:text-white active:scale-[0.98]",
+                  style:{
+                    color:"rgba(255, 255, 255, 0.65)",
+                    border:"1px solid rgba(255, 255, 255, 0.12)",
+                    backgroundColor:"rgba(255, 255, 255, 0.04)"
+                  },
                   children:"Skip for now"
                 })
               ]
@@ -91,7 +107,6 @@ function M(){
   }
 
   function g(){
-    // When clicking login, ALWAYS show the Install prompt modal first!
     i(!0);
   }
 
@@ -160,7 +175,7 @@ function M(){
                   e.jsx("img",{
                     src:"/logo.png",
                     alt:"NIK Logo",
-                    className:"relative z-10 h-16 w-16 object-contain drop-shadow-[0_0_15px_rgba(6,182,212,0.4)]"
+                    className:"relative z-10 h-16 w-16 object-contain drop-shadow-[0_0_15px_rgba(0,229,255,0.4)]"
                   })
                 ]
               }),
@@ -198,7 +213,12 @@ function M(){
                 type:"button",
                 id:"quick-install-btn",
                 onClick:()=>i(!0),
-                className:"mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-cyan-500/20 bg-cyan-500/5 text-[13px] font-medium text-cyan-400 transition-colors hover:bg-cyan-500/10 active:scale-[0.99]",
+                className:"mt-3 flex h-10 w-full items-center justify-center gap-2 rounded-lg text-[13px] font-medium transition-colors active:scale-[0.99]",
+                style:{
+                  backgroundColor:"rgba(0, 229, 255, 0.08)",
+                  border:"1px solid rgba(0, 229, 255, 0.25)",
+                  color:"#00e5ff"
+                },
                 children: e.jsxs(e.Fragment,{
                   children:[
                     e.jsx("svg",{className:"h-4 w-4",fill:"none",viewBox:"0 0 24 24",stroke:"currentColor",strokeWidth:2,children:e.jsx("path",{strokeLinecap:"round",strokeLinejoin:"round",d:"M12 4v12m0 0l-3-3m3 3l3-3m-8 7h10"})}),
